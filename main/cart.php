@@ -1,6 +1,10 @@
 <?php
-	include("function/session.php");
-	include("db/dbconn.php");
+	
+
+$conn=mysql_connect("localhost","root","root");
+if(!$conn) die(mysql_error());
+
+$select_db=mysql_select_db("sales");
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,7 +36,7 @@
 			<?php
 				$id = (int) $_SESSION['id'];
 			
-					$query = mysql_query ("SELECT * FROM customer WHERE customerid = '$id' ") or die (mysql_error());
+					$query = mysql_query ("SELECT * FROM customer WHERE customer_id = '$id' ") or die (mysql_error());
 					$fetch = mysql_fetch_array ($query);
 			?>
 	
@@ -51,7 +55,7 @@
 						<?php
 							$id = (int) $_SESSION['id'];
 			
-								$query = mysql_query ("SELECT * FROM customer WHERE customerid = '$id' ") or die (mysql_error());
+								$query = mysql_query ("SELECT * FROM customer WHERE customer_id= '$id' ") or die (mysql_error());
 								$fetch = mysql_fetch_array ($query);
 						?>
 						<center>
